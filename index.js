@@ -30,7 +30,7 @@ app.get('/cart/add',(req,res)=>{
     quantity:quantity
   }
   let newCart=addProduct(cart,newItem)
-  res.json({cartIems:newCart});
+  res.json({newCart});
 })
 
 function updateQuantity(cart,quantity,productId){
@@ -46,7 +46,7 @@ app.get('/cart/edit',(req,res)=>{
   let productId=parseInt(req.query.productId);
   let quantity=parseInt(req.query.quantity);
   let result=updateQuantity(cart,quantity,productId)
-  res.json({cartIems:result})
+  res.json({result})
 })
 function deleteProductById(product,productId){
   return product.productId!=productId
@@ -54,11 +54,11 @@ function deleteProductById(product,productId){
 app.get('/cart/delete',(req,res)=>{
   let productId=parseInt(req.query.productId)
   cart=cart.filter(product=>deleteProductById(product,productId))
-  res.json({newCart:cart})
+  res.json({cart})
 })
 
 app.get("/cart",(req,res)=>{
-  res.json({newCart:cart})
+  res.json({cart})
 })
 function totalQuantity(cart){
   let totalquantity=0;
