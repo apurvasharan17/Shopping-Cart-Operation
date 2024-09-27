@@ -30,7 +30,7 @@ app.get('/cart/add',(req,res)=>{
     quantity:quantity
   }
   let newCart=addProduct(cart,newItem)
-  res.json({newCart});
+  res.json({newCart})
 })
 
 function updateQuantity(cart,quantity,productId){
@@ -69,7 +69,7 @@ function totalQuantity(cart){
 }
 app.get('/cart/total-quantity',(req,res)=>{
   let result=totalQuantity(cart)
-  res.json({totalQuanity:result})
+  res.json({result})
 })
 function totalPrice(cart){
   let totalprice=0;
@@ -80,7 +80,7 @@ function totalPrice(cart){
 }
 app.get('/cart/total-price',(req,res)=>{
   let result=totalPrice(cart)
-  res.json({totalPrice:result})
+  res.json({result})
 })
 
 
